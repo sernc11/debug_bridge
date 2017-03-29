@@ -961,7 +961,7 @@ Rsp::mem_read(char* data, size_t len) {
   m_mem->access(0, addr, length, buffer);
 
   for(i = 0; i < length; i++) {
-    rdata = buffer[i];
+    rdata = (buffer[i] & 0xff);
     snprintf(&reply[i * 2], 3, "%02x", rdata);
   }
 
